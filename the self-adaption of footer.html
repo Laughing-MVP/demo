@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>当内容少于窗口高度时页脚固定在底部，内容多于窗口高度时页脚在所有内容下面</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	body,html {
+		margin: 0;
+		height: 100%;
+	}
+		/*将内容高度设置成当前浏览器窗口高度，一般情况下块元素高度是自适应的也就说随着内容的增加自动调整高度大小以包裹里面的内容*/
+	.wrap {
+		min-height: 100%;
+	}
+	.header {
+		height: 60px;
+		background-color: red;
+	}
+	/*内容区域留出底部内边距以便让页脚用margin负值显示在底部，padding-bottom值即为页脚高度*/
+	.content {
+		background-color: pink;
+		height: 600px;
+		padding-bottom: 30px;
+	}
+	/*margin负值让页脚能够显示在当前浏览器窗口的最底部，而不是什么情况都被置于浏览器窗口的高度之外*/
+	.footer {
+		height: 30px;
+		background-color: violet;
+		bottom: 0px;
+		width: 100%;
+		margin-top: -30px;
+	}
+	.footpush {
+		height: 30px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header"></div>
+		<div class="content">这是content</div>	
+	</div>
+	<div class="footer">这是页脚</div>
+</body>
+</html>
